@@ -1,0 +1,13 @@
+{
+  "type": "quantumcubes:quantum_dimension",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "quantumcubes:quantum_void",
+      "lakes": false,
+      "features": false,
+      "layers": [],
+      "structure_overrides": []
+    }
+  }
+}

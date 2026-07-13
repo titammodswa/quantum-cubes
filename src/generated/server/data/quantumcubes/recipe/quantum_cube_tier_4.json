@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": "minecraft:crying_obsidian",
+    "D": "minecraft:diamond_block",
+    "P": "minecraft:poisonous_potato",
+    "Q": "quantumcubes:quantum_cube_tier_3",
+    "S": "minecraft:sculk_shrieker"
+  },
+  "pattern": [
+    "DSD",
+    "CQC",
+    "DPD"
+  ],
+  "result": {
+    "id": "quantumcubes:quantum_cube_tier_4"
+  }
+}

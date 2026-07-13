@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": "minecraft:amethyst_shard",
+    "C": "minecraft:copper_block",
+    "O": "minecraft:obsidian"
+  },
+  "pattern": [
+    "COC",
+    "OAO",
+    "COC"
+  ],
+  "result": {
+    "id": "quantumcubes:quantum_cube_tier_1"
+  }
+}

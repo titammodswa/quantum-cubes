@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "quantumcubes:block/quantum_cube_tier_3" }
+  }
+}

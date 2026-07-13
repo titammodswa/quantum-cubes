@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "G": "minecraft:gold_block",
+    "O": "minecraft:obsidian",
+    "Q": "quantumcubes:quantum_cube_tier_2"
+  },
+  "pattern": [
+    "GOG",
+    "OQO",
+    "GOG"
+  ],
+  "result": {
+    "id": "quantumcubes:quantum_cube_tier_3"
+  }
+}

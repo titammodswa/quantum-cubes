@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": "minecraft:dragon_breath",
+    "H": "minecraft:heavy_core",
+    "N": "minecraft:netherite_block",
+    "P": "minecraft:pointed_dripstone",
+    "Q": "quantumcubes:quantum_cube_tier_4",
+    "S": "minecraft:nether_star",
+    "W": "minecraft:wind_charge"
+  },
+  "pattern": [
+    "BWN",
+    "SQS",
+    "NPH"
+  ],
+  "result": {
+    "id": "quantumcubes:quantum_cube_tier_5"
+  }
+}
