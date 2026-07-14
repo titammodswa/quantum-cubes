@@ -10,6 +10,9 @@
   "has_ceiling": false,
   "coordinate_scale": 1.0,
   "ambient_light": 0.0,
+  "attributes": {
+    "minecraft:visual/ambient_light_color": "#FFFFFF"
+  },
   "fixed_time": 6000,
   "logical_height": 384,
   "effects": "minecraft:overworld",
