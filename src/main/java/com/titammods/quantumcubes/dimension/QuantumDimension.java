@@ -2,13 +2,13 @@ package com.titammods.quantumcubes.dimension;
 
 import com.titammods.quantumcubes.block.CubeTier;
 import com.titammods.quantumcubes.block.entity.QuantumCubeBlockEntity;
+import com.titammods.quantumcubes.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
@@ -88,7 +88,7 @@ public final class QuantumDimension {
         int y1 = y0 + size + 1;
         int z1 = z0 + size + 1;
 
-        BlockState bedrock = Blocks.BEDROCK.defaultBlockState();
+        BlockState wall = ModBlocks.QUANTUM_BLOCK.get().defaultBlockState();
         BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
 
         for (int x = x0; x <= x1; x++) {
@@ -97,7 +97,7 @@ public final class QuantumDimension {
                     boolean boundary = x == x0 || x == x1 || y == y0 || y == y1 || z == z0 || z == z1;
                     if (boundary) {
                         cursor.set(x, y, z);
-                        level.setBlock(cursor, bedrock, Block.UPDATE_CLIENTS);
+                        level.setBlock(cursor, wall, Block.UPDATE_CLIENTS);
                     }
                 }
             }

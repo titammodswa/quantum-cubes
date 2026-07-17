@@ -24,6 +24,13 @@ public class ModBlocks {
     public static final DeferredBlock<QuantumCubeBlock> TIER_4 = registerTier(CubeTier.TIER_4);
     public static final DeferredBlock<QuantumCubeBlock> TIER_5 = registerTier(CubeTier.TIER_5);
 
+    public static final DeferredBlock<Block> QUANTUM_BLOCK = registerBlock("quantum_block",
+            key -> new Block(BlockBehaviour.Properties.of()
+                    .setId(key)
+                    .strength(-1.0f, 3600000.0f)
+                    .sound(SoundType.STONE)
+                    .noLootTable()));
+
     private static DeferredBlock<QuantumCubeBlock> registerTier(CubeTier tier) {
         return registerBlock(tier.blockName(), key -> new QuantumCubeBlock(
                 BlockBehaviour.Properties.of()

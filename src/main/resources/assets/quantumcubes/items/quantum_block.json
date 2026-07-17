@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "quantumcubes:block/quantum_block"
+  }
+}

@@ -26,6 +26,7 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.TIER_3.get());
                         output.accept(ModBlocks.TIER_4.get());
                         output.accept(ModBlocks.TIER_5.get());
+                        output.accept(ModBlocks.QUANTUM_BLOCK.get());
                     })
                     .build());
 
