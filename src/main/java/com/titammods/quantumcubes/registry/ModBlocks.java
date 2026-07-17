@@ -30,6 +30,7 @@ public class ModBlocks {
                         .setId(key)
                         .strength(2.0f, 6.0f)
                         .sound(SoundType.STONE)
+                        .noOcclusion()
                         .noLootTable(),
                 tier));
     }
