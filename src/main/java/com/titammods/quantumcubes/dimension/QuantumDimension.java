@@ -4,20 +4,14 @@ import com.titammods.quantumcubes.block.CubeTier;
 import com.titammods.quantumcubes.block.entity.QuantumCubeBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 public final class QuantumDimension {
 
@@ -25,12 +19,7 @@ public final class QuantumDimension {
 
     public static final int FLOOR_Y = 64;
 
-    private static final Map<UUID, ReturnPoint> RETURNS = new ConcurrentHashMap<>();
-
     private QuantumDimension() {
-    }
-
-    private record ReturnPoint(ResourceKey<Level> dimension, Vec3 pos, float yaw, float pitch) {
     }
 
     public static void enter(ServerPlayer player, QuantumCubeBlockEntity be) {
@@ -51,8 +40,7 @@ public final class QuantumDimension {
             generateCube(dimension, index, tier);
         }
 
-        RETURNS.put(player.getUUID(), new ReturnPoint(
-                player.level().dimension(), player.position(), player.getYRot(), player.getXRot()));
+        QuantumSavedData.get(dimension).putReturn(player.getUUID(), ReturnPoint.of(player));
 
         Vec3 spawn = interiorSpawn(be.getCubeIndex(), tier);
         teleport(player, dimension, spawn, player.getYRot(), player.getXRot());
@@ -63,8 +51,12 @@ public final class QuantumDimension {
         if (server == null) {
             return;
         }
+        ServerLevel dimension = server.getLevel(ModDimensions.QUANTUM_LEVEL);
+        if (dimension == null) {
+            return;
+        }
 
-        ReturnPoint ret = RETURNS.remove(player.getUUID());
+        ReturnPoint ret = QuantumSavedData.get(dimension).takeReturn(player.getUUID());
         ServerLevel returnLevel = (ret != null) ? server.getLevel(ret.dimension()) : null;
 
         ServerLevel target;
